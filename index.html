@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>图片压缩工具</h1>
+        
+        <!-- 上传区域 -->
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="fileInput" accept="image/*" hidden>
+            <div class="upload-content">
+                <svg class="upload-icon" viewBox="0 0 24 24">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+                <p>点击或拖拽图片到这里</p>
+                <button class="upload-btn">选择图片</button>
+            </div>
+        </div>
+
+        <!-- 预览区域 -->
+        <div class="preview-container" id="previewContainer" style="display: none;">
+            <div class="preview-box">
+                <h3>原图</h3>
+                <div class="image-container">
+                    <img id="originalImage" alt="原预览">
+                </div>
+                <p>文件大小: <span id="originalSize">0 KB</span></p>
+            </div>
+            
+            <div class="preview-box">
+                <h3>压缩后</h3>
+                <div class="image-container">
+                    <img id="compressedImage" alt="压缩后预览">
+                </div>
+                <p>文件大小: <span id="compressedSize">0 KB</span></p>
+            </div>
+        </div>
+
+        <!-- 压缩控制区域 -->
+        <div class="controls" id="controls" style="display: none;">
+            <div class="quality-control">
+                <label for="quality">压缩质量:</label>
+                <input type="range" id="quality" min="0" max="100" value="80">
+                <span id="qualityValue">80%</span>
+            </div>
+            
+            <!-- 新增裁剪控制区域 -->
+            <div class="resize-control">
+                <div class="dimension-input">
+                    <label for="width">宽度:</label>
+                    <input type="number" id="width" placeholder="像素">
+                    <span>px</span>
+                </div>
+                <div class="dimension-input">
+                    <label for="height">高度:</label>
+                    <input type="number" id="height" placeholder="像素">
+                    <span>px</span>
+                </div>
+                <div class="aspect-ratio">
+                    <input type="checkbox" id="maintainAspectRatio" checked>
+                    <label for="maintainAspectRatio">保持宽高比</label>
+                </div>
+            </div>
+            
+            <button id="downloadBtn" class="download-btn">下载压缩后的图片</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
